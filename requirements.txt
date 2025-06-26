@@ -1,0 +1,21 @@
+torch
+torchvision
+transformers
+accelerate
+sentencepiece
+prodigyopt
+opencv-python-headless
+wandb
+matplotlib
+einops
+scikit-image
+clean-fid==0.1.35
+torchmetrics
+deepspeed
+diffusers @ git+https://github.com/huggingface/diffusers
+timm
+qwen_vl_utils
+prettytable
+tqdm
+DISTS-pytorch
+pytorch-fid
