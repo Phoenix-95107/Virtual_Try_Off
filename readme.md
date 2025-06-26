@@ -1,4 +1,4 @@
-# TEMU-VTOFF: Virtual Try-On & Fashion Understanding Toolkit
+# TEMU-VTOFF: Virtual Try-Off & Fashion Understanding Toolkit
 
 TEMU-VTOFF is a state-of-the-art toolkit for virtual try-on and fashion image understanding. It leverages advanced diffusion models, vision-language models, and semantic segmentation to enable garment transfer, attribute captioning, and mask generation for fashion images.
 
