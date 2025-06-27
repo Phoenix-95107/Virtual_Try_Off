@@ -1,5 +1,5 @@
 from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration, pipeline
-from qwen_vl_utils import process_vision_info
+# from qwen_vl_utils import process_vision_info
 import os
 from accelerate.utils import set_seed
 import torch
