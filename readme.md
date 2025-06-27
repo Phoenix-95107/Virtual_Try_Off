@@ -1,8 +1,6 @@
-<img src="./assets/teaser.png" alt="example">
 # TEMU-VTOFF: Virtual Try-Off & Fashion Understanding Toolkit
-
 TEMU-VTOFF is a state-of-the-art toolkit for virtual try-off and fashion image understanding. It leverages advanced diffusion models, vision-language models, and semantic segmentation to enable garment transfer, attribute captioning, and mask generation for fashion images.
-
+<img src="./assets/teaser.png" alt="example">
 ## Table of Contents
 
 - [Features](#features)
@@ -141,7 +139,11 @@ fine_mask.save("outputs/example1_fine_mask.jpg")
 ## Examples
 
 See the `examples/` directory for sample images, masks and captions. Example usage scripts are provided for each core component.
-
+Here is the workflow of this model and a comparison of its results with other models.
+**Workflow
+<img src="./assets/workflow.png" alt="Workflow" />
+**Compair
+<img src="./assets/compair.png" alt="compair" />
 ---
 
 ## Citation
