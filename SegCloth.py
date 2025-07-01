@@ -48,7 +48,8 @@ def segment_clothing(img, category):
     # Create the final image by pasting the gray overlay onto the original using the clothing mask
     fine_mask_clothes = img_rgb.copy()
     fine_mask_clothes.paste(gray_overlay, mask=binary_mask)
-
+    binary_mask.save("binary_mask.jpg")
+    fine_mask_clothes.save("fine_mask_clothes.jpg")
     return binary_mask, fine_mask_clothes
 
 
