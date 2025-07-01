@@ -156,16 +156,16 @@ def caption_single_image(img_path, category, model=model, processor=processor):
 
     caption = output_text[0]
     print(f"Generated Caption: {caption}")
+    return caption
+    # output_path = args.output_path
+    # if output_path is None:
+    #     base, _ = os.path.splitext(args.image_path)
+    #     output_path = f"{base}.txt"
 
-    output_path = args.output_path
-    if output_path is None:
-        base, _ = os.path.splitext(args.image_path)
-        output_path = f"{base}.txt"
+    # with open(output_path, "w") as f:
+    #     f.write(caption)
 
-    with open(output_path, "w") as f:
-        f.write(caption)
-
-    print(f"Caption saved to: {output_path}")
+    # print(f"Caption saved to: {output_path}")
 
 
 def qwen_captioning(args):
