@@ -163,19 +163,18 @@ def main(args):
     # image_directory = os.path.dirname(image_path)
 
     image = Image.open(image_path).convert("RGB")
-    binary_mask_pil, fine_mask_pil = segment_clothing(image, args.category)
-
     image = image.resize((args.width, args.height))
-    image_tensor = image
+    image_tensor = transforms.ToTensor()(image).unsqueeze(0)
+
+    binary_mask_pil, fine_mask_pil = segment_clothing(image, args.category)
 
     caption = caption_single_image(image_path, args.category)
 
-    image_fine_mask = fine_mask_pil.resize((args.width, args.height))
-    fine_mask_tensor = transforms.ToTensor()(image_fine_mask).unsqueeze(0)
-
-    image_binary_mask = binary_mask_pil.convert("RGB").resize(
-        (args.width, args.height))
+    image_binary_mask = binary_mask_pil.resize((args.width, args.height))
     binary_mask_tensor = transforms.ToTensor()(image_binary_mask).unsqueeze(0)
+
+    image_fine_mask = fine_mask_pil.convert("RGB").resize((args.width, args.height))
+    fine_mask_tensor = transforms.ToTensor()(image_fine_mask).unsqueeze(0)
 
     generator = torch.Generator(
         device=device).manual_seed(args.seed) if args.seed else None
@@ -188,8 +187,8 @@ def main(args):
         num_inference_steps=args.num_inference_steps,
         generator=generator,
         vton_image=image_tensor,
-        mask_input=fine_mask_tensor,
-        image_input_masked=binary_mask_tensor,
+        mask_input=binary_mask_tensor,
+        image_input_masked=fine_mask_tensor,
     ).images[0]
 
     image.save(f"{args.output_dir}/{image_name}_output.jpg")
